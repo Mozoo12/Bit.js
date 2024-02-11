@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Test</title>
+<script src="app.js"></script>
+<script src="route.js"></script>
+</head>
+<body>
+    <div id="bar">
+        <h3 onclick="go('/index')">首页</h3>
+        <h3 onclick="go('/about')">详情</h3>
+    </div>
+    <div id="app">
+    </div>
+</body>
+<script>
+let app = new Bit
+app.use(Route)
+app.mount("#app")
+app.setup()
+let routes = [
+    {
+        path:"/index",
+        page:"<h1 onclick=go('about')>首页</h1>"
+    },
+    {
+        path:"/about",
+        page:"<h1>详情</h1>"
+    },
+]
+app.$.Route.set_route(routes)
+
+function go(path){
+    app.$.Route.go(path)
+}
+
+
+
+</script>
+</html>
